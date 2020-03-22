@@ -1,6 +1,6 @@
 # IntelliasApp
 
-- [ x ] the application should display properly on mobile, tablet and desktop
+- [x] the application should display properly on mobile, tablet and desktop
 - [ x ] it should have a fixed navbar on top of the screen with a “company-logo” and the
         name of the logged-in user
 - [ x ] it should have a sidebar navbar menu that can be collapsed/minimised (leaving
