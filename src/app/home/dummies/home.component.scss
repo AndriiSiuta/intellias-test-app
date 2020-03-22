@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-card {
+
+  &__header {
+    justify-content: center;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__description {
+    display: flex;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
+}

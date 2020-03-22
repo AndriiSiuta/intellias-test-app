@@ -1,0 +1,44 @@
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+}
+
+.title {
+  padding: 25px;
+}
+
+.users-container {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  padding: 20px;
+  overflow: auto;
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 7px;
+    border: 1px solid black;
+
+    font-size: 16px;
+
+    &__name {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    &__email {}
+
+    &__company {}
+  }
+}
+
+.user-card {
+  width: 100%;
+  margin-bottom: 8px;
+}

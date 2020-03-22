@@ -1,0 +1,13 @@
+<ng-container *ngIf="state$ | async as state">
+  <posts
+    [isTablet]="state.isTablet"
+    [posts]="state.posts"
+    [users]="state.users"
+    (toModalClick)="handleClick($event)"
+    (addPostClick)="handleAddPost()"
+    (deletePostClick)="handleDeletePost($event)"
+    (userNavigateClick)="handleUserClick($event)">
+  </posts>
+</ng-container>
+
+<router-outlet name="modal"></router-outlet>

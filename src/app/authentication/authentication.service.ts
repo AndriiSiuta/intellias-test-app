@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
-import {
-  BehaviorSubject,
-  Observable
-} from 'rxjs';
 import { Router } from '@angular/router';
 
 export interface IUser {
   username: string,
-  password: string
+  password?: string
+  uniqueId?: string;
 }
 
 interface IAuthenticationService {
@@ -17,15 +14,13 @@ interface IAuthenticationService {
 
   logout(): void
 
-  getUser(): Observable<IUser>
+  getUser(): IUser
 }
 
 
 @Injectable({ providedIn: 'root' })
 
 export class AuthenticationService implements IAuthenticationService {
-  private userSubject$: BehaviorSubject<IUser> = new BehaviorSubject<IUser>(null);
-
   USER_KEY = 'user';
 
   isUserLoggedIn(): boolean {
@@ -33,19 +28,21 @@ export class AuthenticationService implements IAuthenticationService {
   }
 
   login(user: IUser): void {
-    localStorage.setItem('user', JSON.stringify(user));
-    this.userSubject$.next(user);
+    // hard code id for this case
+    localStorage.setItem(this.USER_KEY, JSON.stringify({
+      ...user,
+      uniqueId: 0
+    }));
     this.router.navigate(['']);
   }
 
   logout(): void {
     localStorage.removeItem(this.USER_KEY);
-    this.userSubject$.next(null);
     this.router.navigate(['/auth']);
   }
 
-  getUser(): Observable<IUser> {
-    return this.userSubject$.asObservable();
+  getUser(): IUser {
+    return JSON.parse(localStorage.getItem(this.USER_KEY));
   }
 
   constructor(

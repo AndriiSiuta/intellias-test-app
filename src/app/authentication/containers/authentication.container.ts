@@ -16,11 +16,11 @@ import {
 
 export class AuthenticationContainer {
   handleSubmit(user: IUser) {
-    this.authService.login(user);
+    this.authenticationService.login(user);
   }
 
   constructor(
-    private authService: AuthenticationService
+    private authenticationService: AuthenticationService
   ) {
   }
 }

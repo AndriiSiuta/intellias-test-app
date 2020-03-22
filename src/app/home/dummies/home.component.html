@@ -1,0 +1,25 @@
+<mat-card class="home-card">
+  <mat-card-header class="home-card__header">
+    <mat-card-title>
+      Welcome, {{ user.username }}
+    </mat-card-title>
+
+    <mat-card-subtitle class="home-card__description">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. At error facilis illo voluptas. Assumenda autem
+      consequuntur corporis dolore magnam odio odit optio quasi qui, quisquam quos ratione repellendus. Aspernatur,
+      ducimus.
+    </mat-card-subtitle>
+
+  </mat-card-header>
+  <mat-card-content class="home-card__content">
+    <img src="assets/user-placeholder.png" alt="">
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button
+      mat-raised-button
+      (click)="onNavigateClick()">
+      Posts
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,39 @@
+<ng-container *ngIf="user">
+  <mat-card class="details-card">
+    <mat-card-title-group>
+      <mat-card-title>
+        {{ user.name }} {{ user.username }}
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        {{ user.email }}
+      </mat-card-subtitle>
+      <img
+        class="details-card__avatar"
+        mat-card-avatar
+        src="/assets/user-placeholder.png">
+    </mat-card-title-group>
+
+    <mat-card-content>
+      <div class="details-card__company">
+        Company: {{ user.company.name }}
+      </div>
+
+      <div class="details-card__phone">
+        Phone: {{ user.phone }}
+      </div>
+
+      <div class="details-card__website">
+        Website: {{ user.website }}
+      </div>
+
+      <div class="details-card__address">
+        Address: {{ user.address.city }} {{ user.address.street }}
+      </div>
+
+      <div class="details-card__zip">
+        Zip-code: {{ user.address.zipcode }}
+      </div>
+    </mat-card-content>
+  </mat-card>
+</ng-container>

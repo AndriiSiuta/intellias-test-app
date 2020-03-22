@@ -1,0 +1,61 @@
+<nav class="app-navbar">
+  <ng-container *ngIf="isTablet">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </ng-container>
+
+  <img
+    class="app-navbar__logo"
+    src="/assets/logo.png"
+    alt="Intellias">
+  <div class="app-navbar__username">
+    {{ user.username }}
+  </div>
+</nav>
+
+<mat-sidenav-container class="main-container" autosize>
+  <mat-sidenav
+    #sidenav
+    class="main-container__sidenav"
+    [mode]="mode"
+    [opened]="opened">
+
+    <mat-nav-list class="link-container">
+
+      <ng-container *ngIf="!isTablet">
+        <mat-list-item class="link-container__link">
+          <button mat-icon-button (click)="isExpanded = !isExpanded">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </mat-list-item>
+      </ng-container>
+
+      <a
+        [routerLink]="['/main/posts']"
+        [routerLinkActive]="'active-link'">
+        <mat-list-item class="link-container__link">
+          <mat-icon mat-list-icon>menu_book</mat-icon>
+          <p matLine *ngIf="isExpanded">Posts</p>
+        </mat-list-item>
+      </a>
+
+      <a
+        [routerLink]="['users']"
+        [routerLinkActive]="'active-link'">
+        <mat-list-item class="link-container__link">
+          <mat-icon mat-list-icon>people</mat-icon>
+          <p matLine *ngIf="isExpanded">Users</p>
+        </mat-list-item>
+      </a>
+
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <div class="main-container__content">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>

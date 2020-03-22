@@ -1,0 +1,43 @@
+<div class="title">
+  <h1>Users</h1>
+</div>
+
+<div class="users-container">
+  <ng-container *ngFor="let user of users; trackBy: trackByFn">
+    <ng-container *ngIf="!isTablet else tablet">
+      <div class="user">
+        <div
+          class="user__name"
+          (click)="onClick(user)">
+          {{ user.name }} {{ user.username }}
+        </div>
+
+        <div class="user__email">
+          {{ user.email }}
+        </div>
+
+        <div class="user__company">
+          {{ user.company.name }}
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #tablet>
+      <mat-card class="user-card">
+        <mat-card-header>
+          <mat-card-title (click)="onClick(user)">
+            {{ user.name }} {{ user.username }}
+          </mat-card-title>
+
+          <mat-card-subtitle>
+            {{ user.email }}
+          </mat-card-subtitle>
+
+          <mat-card-subtitle>
+            {{ user.company.name }}
+          </mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </ng-template>
+  </ng-container>
+</div>
