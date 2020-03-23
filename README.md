@@ -31,3 +31,6 @@
 # Code structure
 - I tried to follow best practices when doing my job, so you will not find some issues deal with performance or some
 change detection stuff.        
+
+# Tests 
+I don't have time to write the tests - https://github.com/akveo/nebular/pull/1664 you can check my open source contribute where i wrote some tests.
